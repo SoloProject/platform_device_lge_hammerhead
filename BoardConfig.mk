@@ -27,6 +27,7 @@ BOARD_KERNEL_PAGESIZE := 2048
 
 BOARD_KERNEL_CMDLINE := console=ttyHSL0,115200,n8 androidboot.selinux=permissive androidboot.hardware=hammerhead user_debug=31 maxcpus=2 msm_watchdog_v2.enable=1
 BOARD_MKBOOTIMG_ARGS := --ramdisk_offset 0x02900000 --tags_offset 0x02700000
+BOARD_KERNEL_IMAGE_NAME := zImage-dtb
 
 # Shader cache config options
 # Maximum size of the  GLES Shaders that can be cached for reuse.
@@ -114,6 +115,10 @@ BOARD_SEPOLICY_DIRS += device/lge/hammerhead/sepolicy
 ifneq ($(filter hammerhead_fp aosp_hammerhead_fp,$(TARGET_PRODUCT)),)
 BOARD_SEPOLICY_DIRS += \
        device/lge/hammerhead/sepolicy-hammerhead_fp
+
+# Define kernel config for inline building
+TARGET_KERNEL_CONFIG := hammerhead_defconfig
+TARGET_KERNEL_SOURCE := kernel/lge/hammerhead
 
 # The list below is order dependent
 BOARD_SEPOLICY_UNION += \
