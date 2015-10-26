@@ -19,6 +19,10 @@
 #
 # Everything in this directory will become public
 
+# Define kernel config for inline building
+TARGET_KERNEL_CONFIG := hammerhead_defconfig
+TARGET_KERNEL_SOURCE := kernel/lge/hammerhead
+
 PRODUCT_COPY_FILES += \
     device/lge/hammerhead/init.hammerhead.rc:root/init.hammerhead.rc \
     device/lge/hammerhead/init.hammerhead.usb.rc:root/init.hammerhead.usb.rc \
